@@ -19,7 +19,10 @@ export default function Home() {
 
   function testStart() {
     setIsTestRunning(true);
-    // code goes here
+    // Code goes here
+    setIsLeak(true);
+    setData([30, 30, 20]);
+    // End Code
     setIsTestRunning(false);
   }
 
