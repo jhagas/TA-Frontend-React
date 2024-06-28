@@ -40,7 +40,15 @@ export default function Source() {
             className="hover:underline text-blue-300"
             href="https://github.com/jhagas/TA-Audio-Recorder"
           >
-            Arduino Nano
+            Arduino Nano Audio Recorder
+          </a>
+        </li>
+        <li>
+          <a
+            className="hover:underline text-blue-300"
+            href="https://github.com/jhagas/TA-Kalibrasi-MAX4466"
+          >
+            Arduino Nano Calibration MAX4466
           </a>
         </li>
       </ol>
