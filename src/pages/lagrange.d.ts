@@ -1,1 +1,0 @@
-declare module "interpolating-polynomial";

@@ -2,18 +2,16 @@ import { useState } from "react";
 import Indicator from "../components/indicator";
 
 export default function Home() {
+  const [ip, setIp] = useState("http://172.26.201.201/data");
   const [data, setData] = useState({ leak: false, distance: 18 });
   const [isTestRunning, setIsTestRunning] = useState(false);
 
   function testStart() {
-    setIsTestRunning(true);
-    // Code goes here
-    const url = "http://127.0.0.1:8080/data";
-
     // Function to fetch data
     async function fetchData() {
+      setIsTestRunning(true);
       try {
-        const response = await fetch(url);
+        const response = await fetch(ip);
         const data = await response.json();
         setData({
           leak: JSON.parse(data.leak),
@@ -22,23 +20,28 @@ export default function Home() {
       } catch (error) {
         console.error("Error fetching data:", error);
       }
+      setIsTestRunning(false);
     }
     // Call the function to fetch data
     fetchData();
-
-    // End Code
-    setIsTestRunning(false);
   }
+  console.log(isTestRunning);
 
   return (
     <main className="flex flex-col items-center">
-      {isTestRunning && <p className="mb-5">EVENT LOG:</p>}
+      <input
+        type="text"
+        value={ip}
+        onChange={(e) => setIp(e.target.value)}
+        className="p-3 bg-zinc-800 rounded-lg border border-zinc-600 max-w-fit mb-3 cursor-pointer hover:bg-zinc-500 text-white transition-colors"
+      />
       <div
         onClick={testStart}
-        className="p-3 bg-zinc-800 rounded-lg border border-zinc-600 max-w-fit mb-10 cursor-pointer hover:bg-zinc-500 text-white transition-colors"
+        className="p-3 bg-zinc-800 rounded-lg border border-zinc-600 max-w-fit mb-5 cursor-pointer hover:bg-zinc-500 text-white transition-colors"
       >
         TEST!
       </div>
+      {isTestRunning && <p className="mb-5 text-white">LOADING!</p>}
       <Indicator leak={data.leak} />
       <div className="mx-auto mt-20 flex flex-col gap-14 items-center w-full font-semibold text-3xl">
         <img src="/pipe.svg" width={800} alt="Measuring Devices" />
