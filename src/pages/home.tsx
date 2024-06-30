@@ -2,7 +2,7 @@ import { useState } from "react";
 import Indicator from "../components/indicator";
 
 export default function Home() {
-  const [ip, setIp] = useState("http://172.26.201.201/data");
+  const [ip, setIp] = useState("http://172.26.201.201:8000/data");
   const [data, setData] = useState({ leak: false, distance: 18 });
   const [isTestRunning, setIsTestRunning] = useState(false);
 
