@@ -25,7 +25,6 @@ export default function Home() {
     // Call the function to fetch data
     fetchData();
   }
-  console.log(isTestRunning);
 
   return (
     <main className="flex flex-col items-center">
