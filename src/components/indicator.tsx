@@ -7,7 +7,7 @@ export default function Indicator({ leak }: { leak: boolean }) {
           : "bg-green-700 shadow-green-700/40"
       }`}
     >
-      {leak ? "LEAK" : "NO LEAK"}
+      {leak ? "ADA KEBOCORAN!" : "NORMAL"}
     </div>
   );
 }
